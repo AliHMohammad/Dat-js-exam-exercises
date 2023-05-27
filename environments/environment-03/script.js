@@ -28,11 +28,11 @@ const products = [
 function start(event) {
     console.log("script is running")
     document.querySelector("#create-form").addEventListener("submit", submitForm);
-    showProducts(filterInStockProducts(products));
+    showProducts(filterProductProperty(products, "inStock"));
 }
 
-function filterInStockProducts(products) {
-    return products.filter((product) => product.inStock === true)
+function filterProductProperty(products, property) {
+    return products.filter((product) => product[property] === true);
 }
 
 function showProducts(products) {
@@ -66,7 +66,7 @@ function submitForm(event) {
     console.log(inStock);
 
     createProduct(name, price, inStock);
-    showProducts(filterInStockProducts(products));
+    showProducts(filterProductProperty(products, "inStock"));
 }
 
 
