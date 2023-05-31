@@ -25,7 +25,8 @@ function createStudent(name, email, age) {
     const newStudent = { name, email, age };
     students.push(newStudent);
     console.log(students);
-    checkCorrectEmail(newStudent);
+    // checkCorrectEmail(newStudent);
+    validateEmail(newStudent);
 }
 
 function checkCorrectEmail(student) {
@@ -45,6 +46,21 @@ function checkCorrectEmail(student) {
     //     console.log("This user does not meet requirements. User removed");
     //     students.pop();
     // }
+
+    console.log(students);
+}
+
+function validateEmail(student) {
+    
+    const [prefix, sufix] = student.email.split("@");
+
+    if (prefix.length >= 4 && sufix === "stud.kea.dk") {
+        console.log("Student mail valid");
+    } else {
+        console.log("Student mail invalid. Removing student from list");
+        const index = students.indexOf(student);
+        students.splice(index, 1)
+    }
 
     console.log(students);
 }
