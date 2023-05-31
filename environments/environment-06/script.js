@@ -1,6 +1,5 @@
 "use strict";
 
-
 window.addEventListener("load", start);
 
 let products = [];
@@ -19,8 +18,7 @@ async function getProducts() {
 }
 
 function showProducts(products) {
-    
-    for (let i = 0; i < products.length; i++){
+    for (let i = 0; i < products.length; i++) {
         showProduct(products[i]);
     }
 }
@@ -37,19 +35,37 @@ function showProduct(product) {
 
     document.querySelector("#products").insertAdjacentHTML("beforeend", html);
 
-    document.querySelector("#products article:last-child button").addEventListener("click", () => addProductToBasket(product));
-
+    document.querySelector("#products article:last-child button").addEventListener("click", () => addToBasket(product));
 }
 
-function addProductToBasket(product) {
-    basket.push(product);
-    showBasket(basket)
+function addToBasket(product) {
+    const findProduct = basket.find((basketItem) => basketItem.product === product);
+
+    if (!findProduct) {
+        const productAndCount = { product, count: 1 };
+        basket.push(productAndCount);
+    } else {
+        findProduct.count += 1;
+    }
+
+    showBasket(basket);
+}
+
+function removeFromBasket(product) {
+    if (product.count > 1) {
+        product.count -= 1;
+    } else if (product.count === 1) {
+        const index = basket.indexOf(product);
+        basket.splice(index, 1);
+    }
+
+    showBasket(basket);
 }
 
 function showBasket(basket) {
     document.querySelector("tbody").innerHTML = "";
-    
-    for (let i = 0; i < basket.length; i++){
+
+    for (let i = 0; i < basket.length; i++) {
         showBasketItem(basket[i]);
     }
 }
@@ -59,15 +75,16 @@ function showBasketItem(basketItem) {
     <tr>
         <td>
             <button class="remove">-</button>
-            ANTAL
+            ${basketItem.count}
             <button class="add">+</button>
         </td>
-        <td>${basketItem.name}</td>
-        <td>${basketItem.price},- pr. styk</td>
+        <td>${basketItem.product.name}</td>
+        <td>${basketItem.product.price},- pr. styk</td>
         <td>PRIS I ALT,-</td>
     </tr>
     `;
 
     document.querySelector("tbody").insertAdjacentHTML("beforeend", html);
-}
 
+    document.querySelector("tbody tr:last-child .remove").addEventListener("click", () => removeFromBasket(basketItem));
+}
