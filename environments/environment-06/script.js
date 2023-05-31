@@ -80,11 +80,12 @@ function showBasketItem(basketItem) {
         </td>
         <td>${basketItem.product.name}</td>
         <td>${basketItem.product.price},- pr. styk</td>
-        <td>PRIS I ALT,-</td>
+        <td>${basketItem.count * basketItem.product.price},-</td>
     </tr>
     `;
 
     document.querySelector("tbody").insertAdjacentHTML("beforeend", html);
 
     document.querySelector("tbody tr:last-child .remove").addEventListener("click", () => removeFromBasket(basketItem));
+    document.querySelector("tbody tr:last-child .add").addEventListener("click", () => addToBasket(basketItem.product));
 }
