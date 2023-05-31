@@ -29,11 +29,22 @@ function createStudent(name, email, age) {
 }
 
 function checkCorrectEmail(student) {
+    const [prefix, sufix]  = student.email.split("@");
+
+    console.log(prefix);
+    console.log(sufix);
+
+    if (prefix.length <= 4 || sufix !== "stud.kea.dk") {
+        console.log("Deleting");
+        const index = students.indexOf(student)
+        students.splice(index, 1);
+    }
 
     
-    if (!student.email.endsWith("@stud.kea.dk" || !student.email.length > 3)) {
-        console.log("This user does not meet requirements. User removed");
-        students.pop();
-    }
+    // if (!student.email.endsWith("@stud.kea.dk" || !student.email.length > 3)) {
+    //     console.log("This user does not meet requirements. User removed");
+    //     students.pop();
+    // }
+
     console.log(students);
 }
