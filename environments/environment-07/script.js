@@ -3,7 +3,7 @@
 
 window.addEventListener("load", start);
 
-let students = [];
+const students = [];
 
 function start(event) {
     console.log("script is running!");
