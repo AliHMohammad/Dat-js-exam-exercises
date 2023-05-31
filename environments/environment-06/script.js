@@ -68,6 +68,7 @@ function showBasket(basket) {
     for (let i = 0; i < basket.length; i++) {
         showBasketItem(basket[i]);
     }
+    showBasketTotals(basket);
 }
 
 function showBasketItem(basketItem) {
@@ -88,4 +89,28 @@ function showBasketItem(basketItem) {
 
     document.querySelector("tbody tr:last-child .remove").addEventListener("click", () => removeFromBasket(basketItem));
     document.querySelector("tbody tr:last-child .add").addEventListener("click", () => addToBasket(basketItem.product));
+}
+
+function showBasketTotals(basket) {
+    const totalUniqueProducts = basket.length;
+    let totalProducts = 0;
+    let totalPrice = 0;
+    let totalWeight = 0;
+
+    for (const basketItem of basket) {
+        totalProducts += basketItem.count;
+        totalPrice += basketItem.product.price * basketItem.count;
+        totalWeight += basketItem.product.weight * basketItem.count;
+    }
+
+    if (totalWeight > 2000) {
+        document.querySelector(".warning").classList.add("show");
+    } else {
+        document.querySelector(".warning").classList.remove("show");
+    }
+
+    document.querySelector("#total-in-basket").textContent = totalProducts;
+    document.querySelector("#total-products").textContent = totalUniqueProducts;
+    document.querySelector("#total-price").textContent = totalPrice;
+    document.querySelector("#total-weight").textContent = totalWeight;
 }
