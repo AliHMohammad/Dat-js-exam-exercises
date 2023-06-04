@@ -3,48 +3,56 @@
         "id": 1,
         "name": "Alice",
         "active": true,
-        "role": "admin"
+        "role": "admin",
+        "mail": "alice0234@stud.kea.dk"
     },
     {
         "id": 2,
         "name": "Bob",
         "active": true,
-        "role": "admin"
+        "role": "admin",
+        "mail": "bob0023@stud.kea.dk"
     },
     {
         "id": 3,
         "name": "Charlie",
         "active": false,
-        "role": "user"
+        "role": "user",
+        "mail": "charlie34@gmail.com"
     },
     {
         "id": 4,
         "name": "Eve",
         "active": true,
-        "role": "guest"
+        "role": "guest",
+        "mail": "eve0012@hotmail.com"
     },
     {
         "id": 5,
         "name": "Fred",
         "active": false,
-        "role": "user"
+        "role": "user",
+        "mail": "fred2334@stud.kea.dk"
     },
     {
         "id": 6,
         "name": "George",
         "active": true,
-        "role": "guest"
+        "role": "guest",
+        "mail": "george2222@gmail.com"
     },
     {
         "id": 7,
         "name": "Harry",
         "active": false,
-        "role": "admin"
+        "role": "admin",
+        "mail": "harry2323@stud.kea.dk"
     },
     {
         "id": 8,
         "name": "Ishmael",
         "active": true,
-        "role": "user"
+        "role": "user",
+        "mail": "ishmael@live.dk"
     }
 ]
