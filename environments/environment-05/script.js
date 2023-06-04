@@ -12,8 +12,10 @@ function start(event) {
 
 function showCourses(courses) {
     
-    for (let i = 0; i < courses.length; i++){
-        showCourse(courses[i]);
+    let i = 0;
+    while (i < courses.length) {
+        showCourse(courses[i])
+        i++;
     }
 }
 
