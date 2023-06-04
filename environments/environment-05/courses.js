@@ -9,7 +9,7 @@ const courses = [
     },
     {
         name: "Web Development",
-        startDate: "2023-09-01",
+        startDate: "2023-10-11",
         endDate: "2024-01-31",
         ectsPoints: 15,
         maxStudents: 40,
@@ -17,7 +17,7 @@ const courses = [
     },
     {
         name: "Mobile App Development",
-        startDate: "2023-09-01",
+        startDate: "2023-08-01",
         endDate: "2024-01-31",
         ectsPoints: 15,
         maxStudents: 40,
@@ -33,10 +33,12 @@ const courses = [
     },
     {
         name: "Artificial Intelligence",
-        startDate: "2024-02-01",
+        startDate: "2024-05-10",
         endDate: "2024-06-30",
         ectsPoints: 5,
         maxStudents: 20,
         teacher: "Tine Jensen"
     }
 ];
+
+export { courses };
